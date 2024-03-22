@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lego Collection</title>
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <style>
+    .card {
+        height: 100%;
+        margin: 10px;
+        background-color: rgba(0, 0, 0, 0.1); ;
+    }
+    
+    .card img {
+        height: 200px;
+        object-fit: cover; 
+    }
+
+  </style>
+</head>
+
+<body tabindex="-1">
+    <%- include('partials/navbar', {page:'/home'}) %>
+
+  <div class="container mx-auto">
+      <div class="hero bg-base-200 rounded-lg p-6">
+          <div class="hero-content text-center ">
+              <div class="max-w-lg">
+                  <h1 class="text-5xl font-bold">Embark on an Epic Journey through our Lego Collection</h1>
+      
+                  <p class="py-6">Set sail on a voyage of imagination and discovery amidst our extensive LEGO collection, where every brick tells a story and every creation sparks wonder.</p>
+              
+                  <a href="/lego/sets" class="btn btn-primary">Explore Sets</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <br>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div>
+
+          <div class="card bg-base-100 shadow-xl">
+              <figure>
+              <img class="w-full" src="https://cdn.rebrickable.com/media/sets/058-1.jpg" alt="Lego set - 70437-1">
+              </figure>
+              <div class="card-body">
+              <h2 class="card-title">Small Wheels</h2>
+              <p>Embark on a journey through us with this wheels building LEGO set, released in london by Kavya in 1965. Re-released in 1969 as an fun learning game for children.</p>
+                  <div class="card-actions justify-end">
+                          <a href="/lego/sets/058-1" class="btn btn-primary">View</a>
+                  </div>
+              </div>
+
+          </div>
+
+      </div>
+
+      <div>
+        <div class="card bg-base-100 shadow-xl">
+          <figure>
+          <img class="w-full" src="https://cdn.rebrickable.com/media/sets/06-1.jpg" alt="Lego Set 70436-1">
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">	Motor Wires</h2>
+            <p>Set sail for adventure with this captivating LEGO set, released in America (USA/CAN) by Shah in 1980. </p>
+            <div class="card-actions justify-end">
+                <a href="/lego/sets/01-Jun" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+      <div class="card bg-base-100 shadow-xl">
+          <figure>
+          <img class="w-full " src="https://cdn.rebrickable.com/media/sets/065-1.jpg" alt="Lego Set - 70425-1">
+          </figure>
+          <div class="card-body">
+          <h2 class="card-title">Two Garage Door Kits</h2>
+          <p>Rev up your imagination with the LEGO® Hidden Side Supernatural spirits (70434). This interactive playset merges physical ghost world , offering a adrenaline rush  experience like no other.</p>
+              <div class="card-actions justify-end">
+                  <a href="/lego/sets/065-1" class="btn btn-primary">View</a>
+              </div>
+          </div>
+      </div>
+
+      </div>
+  </div>
+  
+</body>
+
+</html>
