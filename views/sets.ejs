@@ -6,55 +6,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lego Collection</title>
   <link rel="stylesheet" href="/css/main.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9fafb;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hero {
+      background-color: #ff6b6b;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #fff;
+      background-color: #4ea8de;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #2b98d6;
+    }
+
+    .table-striped {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+    }
+
+    .table-striped th,
+    .table-striped td {
+      border: 1px solid #dee2e6;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .table-striped th {
+      background-color: #4ea8de;
+      color: #fff;
+    }
+
+    .table-striped tr:nth-child(even) {
+      background-color: #f6f8fa;
+    }
+
+    .table-striped img {
+      max-width: 100px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .table-striped .btn {
+      background-color: #4ea8de;
+    }
+
+    .table-striped .btn:hover {
+      background-color: #2b98d6;
+    }
+  </style>
 </head>
 
-
 <body tabindex="-1">
-  <%- include('partials/navbar', {page: '/lego/sets' }) %>
+  <!-- Include navbar partial -->
+  <% include('partials/navbar', { page: '/lego/sets' }) %>
+
   <div class="container mx-auto">
-    <div class="hero bg-base-200 rounded-lg p-6">
-        <div class="hero-content text-center ">
-            <div class="max-w-2xl">
-                <h1 class="text-5xl font-bold">Embark on an Epic Journey through our Lego Collection</h1>
-                <p class="py-6">Browse your favourite genre of sets by theme. Click to explore sets by themes: <br><a href="/lego/sets?theme=Supplemental"
-                    class="btn btn-primary">Supplemental</a> <a href="/lego/sets?theme=World City"
-                    class="btn btn-primary">World City </a> <a href="/lego/sets?theme=Classic Castle"
-                    class="btn btn-primary"> Classic Castle</a> </p>
-            </div>
+    <div class="hero rounded-lg p-6">
+      <div class="hero-content text-center ">
+        <div class="max-w-md">
+          <h1 class="font-bold">Discover the World of LEGO</h1>
+          <p class="py-6">From Magical Castles to Galactic Adventures: Let LEGO Spark Your Imagination</p>
+          <a href="/lego/sets" class="btn">Explore Now</a>
+          <a href="/" class="btn">Back to Homepage</a>
         </div>
+      </div>
     </div>
-</div>
 
-<br>
+    <br />
 
-<div class="overflow-x-auto overflow-y-hidden">
-
-    <table class="table table-zebra w-full">
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Theme</th>
-            <th>Year</th>
-            <th>Number of Parts</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% sets.forEach(set => { %>
-            <tr >
-                <td><div class="avatar"><img src="<%= set.img_url %>" alt="<%= set.name %>" style="width: 8rem; height: 8rem; border-radius: 20%;"></div></td>
-                <td><div class="font-semibold"><%= set.name %></div></td>
-                <td><a href="/lego/sets?theme=<%= set.theme %>" class="btn"><%= set.theme %></a></td>
-                <td><%= set.year %></td>
-                <td><%= set.num_parts %></td>
-                <td><a href="/lego/sets/<%= set.set_num %>" class="btn btn-info">Details</a></td>
-            </tr>
-          <% }); %>
-        </tbody>
-      </table>
- </div>
+    <table class="table-striped">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Information</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% sets.forEach(set => { %>
+        <tr>
+          <td><img src="<%= set.img_url %>" alt="<%= set.name %>"></td>
+          <td><%= set.name %></td>
+          <td>Year: <%= set.year %> | Parts: <%= set.num_parts %></td>
+          <td><a href="/lego/sets/<%= set.set_num %>" class="btn">View Details</a></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
 </body>
-  
-</html>
 
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Sets</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #f6f9fc;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="url"],
+        select,
+        input[type="date"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="url"]:focus,
+        select:focus,
+        input[type="date"]:focus {
+            border-color: #3498db;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .button-container button,
+        .button-container a {
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border: none;
+            outline: none;
+        }
+
+        .button-container button {
+            background-color: #3498db;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+        }
+
+        .button-container button:hover {
+            background-color: #5fa8e3;
+        }
+
+        .button-container a {
+            background-color: #ff8c00;
+            color: #fff;
+            border: 1px solid #ff8c00;
+        }
+
+        .button-container a:hover {
+            background-color: #ffaa33;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Render Navbar Partial -->
+    <% include('partials/navbar', { page: '/lego/addSet' }) %>
+
+    <!-- Form to Add a Set -->
+    <div class="container">
+        <h1>Add Set</h1>
+        <form action="/lego/addSet" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="year">Year:</label>
+            <!-- Using input type date for selecting years -->
+            <input type="number" id="year" name="year" min="1950" max="2024" required>
+
+            <label for="num_parts">Number of Parts:</label>
+            <input type="number" id="num_parts" name="num_parts" required>
+
+            <label for="img_url">Image URL:</label>
+            <input type="url" id="img_url" name="img_url" required>
+
+            <label for="theme_id">Theme:</label>
+            <select id="theme_id" name="theme_id" required>
+                <% themes.forEach(theme => { %>
+                <option value="<%= theme.id %>"><%= theme.name %></option>
+                <% }) %>
+            </select>
+
+            <label for="set_num">Set Number:</label>
+            <input type="text" id="set_num" name="set_num" required>
+
+            <div class="button-container">
+                <a href="/" class="btn btn-primary">Back to Set</a>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Include JavaScript or other scripts -->
+    <script src="/server.js"></script>
+</body>
+
+</html>
