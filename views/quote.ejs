@@ -1,16 +1,76 @@
-<!-- views/quote.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Quote</title>
+  <style>
+    /* Styles for the body */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* Light gray background */
+    }
+
+    /* Styles for the container */
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff; /* White background */
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    }
+
+    /* Styles for the heading */
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333; /* Dark gray color */
+    }
+
+    /* Styles for the blockquote */
+    blockquote {
+      font-size: 18px;
+      color: #555; /* Gray color */
+      border-left: 5px solid #3498db; /* Blue left border */
+      padding-left: 15px;
+    }
+
+    /* Styles for the paragraph inside the blockquote */
+    blockquote p {
+      margin: 0;
+    }
+
+    /* Styles for the navbar */
+    .navbar {
+      background-color: #333; /* Dark gray background */
+      color: #fff; /* White text color */
+      padding: 10px;
+    }
+
+    /* Styles for the links in the navbar */
+    .navbar a {
+      color: #fff; /* White color for links */
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    /* Styles for the active page in the navbar */
+    .navbar a.active {
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
    <%- include('partials/navbar', { page: '/quote' }) %>
-  <h1>Random Quote</h1>
-  <blockquote>
-    <p> <%= quote %></p>
-  </blockquote>
+  <div class="container">
+    <h1>Random Quote</h1>
+    <blockquote>
+      <p><%= quote %></p>
+    </blockquote>
+  </div>
 </body>
 </html>

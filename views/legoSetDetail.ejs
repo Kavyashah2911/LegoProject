@@ -2,49 +2,109 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= set.name %> - Lego Set Detail</title>
-  <link rel="stylesheet" href="/css/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= set.name %> - Lego Set Detail</title>
+    <style>
+        /* CSS for Logo Set Details page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            background-color: #e5e7eb; /* Light blue hero background */
+            border-radius: 10px;
+            padding: 40px;
+            margin-top: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #1f2937; /* Dark blue text color */
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #182c3e; /* Dark gray text color */
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border: none;
+            outline: none;
+            background-color: #2563eb; /* Blue button color */
+            color: #fff; /* White text color */
+        }
+
+        .btn-primary {
+            background-color: #2563eb; /* Blue button color */
+            color: #fff; /* White text color */
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8; /* Darker blue on hover */
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Include navbar partial -->
-  <%- include('partials/navbar', { page: '/lego/sets' }) %>
+    <!-- Include navbar partial -->
+    <%- include('partials/navbar', { page: '/lego/sets' }) %>
 
-  <div class="container mx-auto">
-    <div class="hero bg-base-200 rounded-lg p-6">
-      <div class="hero-content text-center">
-        <div class="max-w-md">
-          <h1 class="text-5xl font-bold"><%= set.name %></h1>
-          <p class="py-6">You are viewing detailed information about the set: <%= set.name %>.</p>
-          <img class="w-full" src="<%= set.img_url %>" alt="<%= set.name %>" />
-          <p>Year Released: <%= set.year %></p>
-          <p>Theme: <%= set.theme %></p>
-          <p>Number of Parts: <%= set.num_parts %></p>
-          <p id="quote"></p>
-          <a href="#" onclick="goBack(); return false;" class="btn btn-primary">Back to Sets</a>
-          <a href="/lego/editSet/<%= set.set_num %>" class="btn btn-primary">Edit</a>
+    <div class="container mx-auto">
+        <div class="hero bg-base-200 rounded-lg p-6">
+            <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold"><%= set.name %></h1>
+                    <p class="py-6">You are viewing detailed information about the set: <%= set.name %>.</p>
+                    <img src="<%= set.img_url %>" alt="<%= set.name %>" />
+                    <p>Year Released: <%= set.year %></p>
+                    <p>Theme: <%= set.theme %></p>
+                    <p>Number of Parts: <%= set.num_parts %></p>
+                    <p id="quote"></p>
+                    <a href="#" onclick="goBack(); return false;" class="btn btn-primary">Back to Sets</a>
+                    <a href="/lego/editSet/<%= set.set_num %>" class="btn btn-primary">Edit</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      try {
-        const response = await fetch('https://api.quotable.io/random');
-        const data = await response.json();
-        document.getElementById('quote').textContent = `Quote: ${data.content} - ${data.author}`;
-      } catch (error) {
-        console.error('Error fetching quote:', error);
-      }
-    });
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                const response = await fetch('https://api.quotable.io/random');
+                const data = await response.json();
+                document.getElementById('quote').textContent = `Quote: ${data.content} - ${data.author}`;
+            } catch (error) {
+                console.error('Error fetching quote:', error);
+            }
+        });
 
-    function goBack() {
-      window.location.href = '/';
-    }
-  </script>
+        function goBack() {
+            window.location.href = '/';
+        }
+    </script>
 </body>
 
 </html>
