@@ -1,5 +1,5 @@
 /********************************************************************************
- * WEB322 – Assignment 05
+ * WEB322 – Assignment 06
  *
  * I declare that this assignment is my own work in accordance with Seneca's
  * Academic Integrity Policy:
@@ -8,9 +8,9 @@
  *
  * Name: Kavya Shah
  * Student ID: 140055229
- * Date: 07/04/2024
+ * Date: 20/04/2024
  *
- * Published URL: https://clumsy-pocketbook-colt.cyclic.app/
+ * Published URL: https://clumsy-pocketbook-colt.cyclic.app
  ********************************************************************************/
 
 const express = require('express');

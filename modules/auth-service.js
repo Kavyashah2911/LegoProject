@@ -21,7 +21,7 @@ let User;
 module.exports = {
   initialize: function () {
     return new Promise(function (resolve, reject) {
-      const db = mongoose.createConnection('mongodb+srv://devankitshukla3003:L7dFfcqK97Osn6XF@cluster0.fw6bppo.mongodb.net/', {
+      const db = mongoose.createConnection('mongodb+srv://kavyashah2729:9nR6pGF4CZ3piYTx@cluster0.ihjxxur.mongodb.net/', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       });
